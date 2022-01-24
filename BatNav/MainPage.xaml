@@ -1,0 +1,64 @@
+﻿<Page
+    x:Class="BatNav.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BatNav"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    KeyDown="KeyPressed" Height="700" Width="1200">
+    <Page.Resources>
+        <DataTemplate x:Key="TextBoxHeaderTemplate1" >
+            <TextBlock Text="{Binding}" Foreground="YellowGreen"/>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Grid x:Name="layoutRoot" Margin="0,0,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="400"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="400"/>
+            <RowDefinition Height="200"/>
+        </Grid.RowDefinitions>
+        <Border x:Name="PanelUpLeft" Grid.Column="0" Grid.Row="0" Background="#152951" ></Border>
+        <Border x:Name="PanelUpMid" Grid.Column="1" Grid.Row="0" Background="#152951" ></Border>
+        <Border x:Name="PanelUpRight" Grid.Column="2" Grid.Row="0" Background="#152951" ></Border>
+        <Border x:Name="PanelMidLeft" Grid.Column="0" Grid.Row="1" Background="#152951" >
+            
+        </Border>
+        <Border x:Name="seaBorder"  Grid.Column="1"  Grid.Row="1"  Background="#2f5cb6"></Border>
+        <Border x:Name="PanelMidRight" Grid.Column="2" Grid.Row="1" Background="#152951" ></Border>
+        <Border x:Name="PanelDownLeft" Grid.Column="0" Grid.Row="2" Background="#152951" ></Border>
+        <Border x:Name="PanelDownMid" Grid.Column="1" Grid.Row="2" Background="#152951" ></Border>
+        <Border x:Name="PanelDownRight" Grid.Column="2" Grid.Row="2" Background="#152951" ></Border>
+        <Border x:Name="PanelUpXRight" Grid.Column="3" Grid.Row="0" Background="#152951" ></Border>
+        <Border x:Name="seaBorderEnemy"  Grid.Column="3" Grid.Row="1" Background="#2f5cb6" ></Border>
+        <Border x:Name="PanelDownXRight" Grid.Column="3" Grid.Row="2" Background="#152951" ></Border>
+
+        <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <CheckBox  x:Name="checkAutoSelectBoatLayout" Checked="HandleAutoBoatLayout" Unchecked="HandleAutoBoatLayout" Content="Auto Layout" Foreground="White" Background="#FF152951"></CheckBox>  
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBox HeaderTemplate="{StaticResource TextBoxHeaderTemplate1}" x:Name="textBox1_Y" Header ="Ligne" Text="1"  Foreground="White" TextWrapping="Wrap" IsReadOnly="True"/>
+            <TextBox HeaderTemplate="{StaticResource TextBoxHeaderTemplate1}" x:Name="textBox1_X" Header ="Colonne" Text="1"  Foreground="White" TextWrapping="Wrap" IsReadOnly="True"/>
+            <TextBox HeaderTemplate="{StaticResource TextBoxHeaderTemplate1}" x:Name="textBoxRemainingShots" Foreground="White" Header ="Tirs restants" FontSize="25" Text="" IsReadOnly="True"/>
+            <TextBox HeaderTemplate="{StaticResource TextBoxHeaderTemplate1}" x:Name="nbTotalImpacts" Header="Impacts"  Foreground="White" FontSize="25" Text="0" IsReadOnly="True"/>
+            <TextBox HeaderTemplate="{StaticResource TextBoxHeaderTemplate1}" x:Name="Level" Header="Niveau" Foreground="White" FontSize="25" Text="1" Width="101"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Width="400" Grid.ColumnSpan="2" Margin="148,37,0,0" >
+            <TextBox HeaderTemplate="{StaticResource TextBoxHeaderTemplate1}" Foreground="White" FontSize="25" Header ="Visibilité :" Text="Mauvaise" RenderTransformOrigin="0.5,0.5" Width="170" Margin="10,10,0,0">
+            </TextBox>
+            <TextBox HeaderTemplate="{StaticResource TextBoxHeaderTemplate1}" x:Name="TextBoxStatus" Foreground ="White" FontSize="25" Header="Résultat tir :" Text="GO ON !" Width="192" Margin="10,10,0,0"/>
+        </StackPanel>
+        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Margin="3917,1076,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Button x:Name="StartButton" Content="Play" Grid.Column="2" Grid.Row="2" Height="62" Width="130" FontSize="22" Background="#3329F54E" Foreground="#FF70F1E6" Click="StartButton_Click" HorizontalAlignment="Center"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="200" Grid.Row="2" VerticalAlignment="Center" Width="123" Source="/Assets/battleship-uss-iowa-1080P-wallpaper-middle-size.png" Stretch="Fill"/>
+
+    </Grid>
+</Page>
